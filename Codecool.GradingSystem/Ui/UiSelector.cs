@@ -1,4 +1,6 @@
-﻿namespace Codecool.GradingSystem.Ui;
+﻿using Codecool.GradingSystem.Repository;
+
+namespace Codecool.GradingSystem.Ui;
 
 public class UiSelector
 {
@@ -7,8 +9,9 @@ public class UiSelector
 
     public UiSelector()
     {
-        _addExamUi = new AddExamUi();
-        _getExamsUi = new GetExamsUi();
+        IExamRepository examRepository = new ExamRepository();
+        _addExamUi = new AddExamUi(examRepository);
+        _getExamsUi = new GetExamsUi(examRepository);
     }
 
     public void SelectUi()

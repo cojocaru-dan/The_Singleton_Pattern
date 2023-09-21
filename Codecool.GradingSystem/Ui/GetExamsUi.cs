@@ -6,9 +6,10 @@ public class GetExamsUi
 {
     private readonly IExamRepository _examRepository;
 
-    public GetExamsUi()
+    public GetExamsUi(IExamRepository examRepository)
     {
-        _examRepository = new ExamRepository();
+        // _examRepository = ExamRepository.GetInstance();
+        _examRepository = examRepository;
     }
 
     public void ShowExams()
